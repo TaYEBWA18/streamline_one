@@ -213,6 +213,7 @@ footer a {
                 <ul>
                     <li><a href="#" class="active" style="color:#005580;">Homepage</a></li>
                     <li><a href="{{route('about')}}" style="color:#005580;">About us</a></li>
+                    <li><a href="{{route('patients.index')}}" style="color:#005580;">EMR</a></li>
                     <li><a href="#" style="color:#005580;">Careers</a></li>
                     <li><a href="{{route('contact')}}" style="color:#005580;">Contact us</a></li>
                 </ul>

@@ -11,20 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //adds fields to the patients database & is followed by migration after all edits
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
             $table->enum('gender', ['M', 'F'])->comment('M is male and F is female');
             $table->string('nin', 14);
-            $table->date('date_of_birth');
+            $table->date('date_of_birth'); //give several options Ids and decribe them in the comment
             $table->enum('marital_status', ['1', '2', '3', '4'])->comment('1 is single, 2 is married, 3 is divorced, 4 is widowed');
             $table->string('phone_number', 11);
+            $table->string('email');
             $table->string('next_of_kin');
             $table->string('nok_phone_number');
             $table->enum('relationship', ['1', '2', '3', '4', '5'])->comment('1 is mother, 2 is father, 3 is son, 4 is daughter, 5 is spouse'); 
             $table->timestamps();
-            
+            //id first and timestamp last
 
         });
     }

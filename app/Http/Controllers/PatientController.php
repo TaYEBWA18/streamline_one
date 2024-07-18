@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePatientRuquest;
+use Illuminate\Http\Request; //import Ruquests #Keep names Aa
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
@@ -13,8 +14,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::paginate(5);
-        return view('patients.index', compact('patients'));
+        $patients = Patient::paginate(10); // paginate returns the top five records 
+        return view('patients.index', compact('patients')); // 
     }
 
     /**
@@ -28,16 +29,15 @@ class PatientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePatientRuquest $request)
     {
         // $request->validate([
-        //     'name' => 'required',
-        //     'detail' => 'required',
+        //     
         // ]);
-        // dd($request->request);
+        // dd($request);
         Patient::create($request->all());
          
-        return redirect()->route('patients.index')
+        return redirect()->route('patients.index') 
                         ->with('success','Patient created successfully.');
     }
 
@@ -56,6 +56,7 @@ class PatientController extends Controller
     public function edit($id)
     {
         $patient=Patient::findOrFail($id);
+        // dd($patient);
         return view('patients.edit',compact('patient'));
     }
 
@@ -64,7 +65,7 @@ class PatientController extends Controller
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
-        //
+        
     }
 
     /**

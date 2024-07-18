@@ -61,5 +61,6 @@ Route::get('/unauthorized', function(){
     Return('Unauthorised access: ');
 })->name('unauthorized');
 
+// Here, we need to add resource route for product crud application.
 Route::resource('/patients',PatientController::class);
 

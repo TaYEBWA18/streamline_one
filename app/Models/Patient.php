@@ -16,6 +16,7 @@ class Patient extends Model
         'date_of_birth',
         'marital_status',
         'phone_number',
+        'email',
         'next_of_kin',
         'nok_phone_number',
         'relationship',
