@@ -44,6 +44,10 @@ Route::get('/Category/{Category?}/{item?}', function($Category = "No category se
     return 'Your category is: '.$Category. ' and item is: '.$item;
 });
 
+Route::get('/local', function(){
+    return view('local');
+});
+
 //Grouped Routes for Admin 
 
 Route::middleware(['radmin'])->prefix('admin')->group(function(){//applying the middleware to the route group

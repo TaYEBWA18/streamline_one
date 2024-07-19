@@ -14,7 +14,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::paginate(10); // paginate returns the top five records 
+        $patients = Patient::paginate(6); // paginate returns the top five records 
         return view('patients.index', compact('patients')); // 
     }
 
@@ -73,6 +73,10 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        $patient->delete();
+         
+        return redirect()->route('patients.index')
+                        ->with('success','Patirnt deleted successfully');
     }
+    
 }
