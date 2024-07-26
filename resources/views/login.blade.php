@@ -273,30 +273,42 @@ input[type=text]:placeholder {
 * {
   box-sizing: border-box;
 }
+.button{
+  
+
+}
     </style>
 </head>
 <body>
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
-    <h2 class="active"> Sign In </h2>
-    <h2 class="inactive underlineHover">Sign Up </h2>
+    <!-- <h2 class="active"> Sign In </h2> -->
+    <h2 href="{{route('sign_up')}}" class="inactive underlineHover">Sign Up </h2>
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+      <img src="" id="icon" alt="User Icon" />
     </div>
 
     <!-- Login Form -->
     <form>
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"> <br>
+      <!-- <input href="{{route('patients.index')}}" type="submit" class="fadeIn fourth" value="Log In"> -->
+      <!-- <a class="fadeIn fourth" type="submit" href="{{route('patients.index')}}" style="color:#005580;">Login</a> -->
+      <button type="submit" class="button" href="{{route('patients.index')}}" style=" 
+      color: #47d147;
+      length: 100px;
+      border: 1px solid #;
+      border::radius 10px;
+      font-size:20px;
+      ">LOG IN</button> 
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="">Forgot Password?</a>
     </div>
 
   </div>

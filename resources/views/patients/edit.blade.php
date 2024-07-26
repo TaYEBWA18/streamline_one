@@ -33,63 +33,63 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>First Name:</strong> 
-                <input  type="text" name="first_name" class="form-control" placeholder="Name" value="{{ old('first_name') }}">
+                <input  type="text" name="first_name" class="form-control" placeholder="Name" value="{{ $patient->first_name}}">
             </div>
             <div class="form-group">
                 <strong>Last Name:</strong>
-                <input  type="text" name="last_name" class="form-control" placeholder="Name" value="{{ old('last_name') }}">
+                <input  type="text" name="last_name" class="form-control" placeholder="Name" value="{{ $patient->last_name }}">
             </div>
             <div class="form-group">
                 <strong>Gender:</strong> <!-- for and id should be uniform -->
-                <input  type="radio" id="male" name="gender" value="M" @if(old('gender')=='M') checked @endif>
+                <input  type="radio" id="male" name="gender" value="M" @if( $patient->gender=='M') checked @endif>
                 <label for="male">Male</label>
-                <input  type="radio" id="female" name="gender" value="F" @if(old('gender')=='F') checked @endif>
+                <input  type="radio" id="female" name="gender" value="F" @if($patient->gender=='F') checked @endif>
                 <label for="female">Female</label>
             </div>
             <div class="form-group">
                 <strong>National ID:</strong>
-                <input maxlength="14" minlength="14"  type="text" name="nin" class="form-control" placeholder="NIN" value="{{ old('nin') }}">
+                <input maxlength="14" minlength="14"  type="text" name="nin" class="form-control" placeholder="NIN" value="{{ $patient->nin }}">
             </div>
             <div class="form-group">
                 <strong>DATE OF BIRTH:</strong>
-                <input  type="date" name="date_of_birth" class="form-control" placeholder="01/01/200" value="{{ old('date_of_birth') }}">
+                <input  type="date" name="date_of_birth" class="form-control" placeholder="01/01/200" value="{{ $patient->date_of_birth }}">
             </div>
             <div class="form-group">
                 <strong>Phone Number:</strong>
-                <input  type="text" name="phone_number" class="form-control" placeholder="077777731" value="{{ old('phone_number') }}">
+                <input  type="text" name="phone_number" class="form-control" placeholder="077777731" value="{{ $patient->phone_number }}">
             </div>
             <div class="form-group">
                 <strong>Email:</strong>
-                <input  type="email" name="email" class="form-control" placeholder="you@gmail.com"  value="{{ old('email') }}">
+                <input  type="email" name="email" class="form-control" placeholder="you@gmail.com"  value="{{ $patient->email }}">
             </div>
             <div class="form-group">
                 <strong>Marital Status:</strong>
-                <input  type="radio" id="single" name="marital_status" value="1" @if(old('marital_status')=='1') checked @endif>
+                <input  type="radio" id="single" name="marital_status" value="1" @if($patient->marital_status=='1') checked @endif>
                 <label for="single">Single</label>
-                <input  type="radio" id="married" name="marital_status" value="2" @if(old('marital_status')=='2') checked @endif>
+                <input  type="radio" id="married" name="marital_status" value="2" @if($patient->marital_status=='2') checked @endif>
                 <label for="married">Married</label>
-                <input  type="radio" id="divorced" name="marital_status" value="3" @if(old('marital_status')=='3') checked @endif>
+                <input  type="radio" id="divorced" name="marital_status" value="3" @if($patient->marital_status=='3') checked @endif>
                 <label for="divorced">Divorced</label>
-                <input  type="radio" id="widowed" name="marital_status" value="4" @if(old('marital_status')=='4') checked @endif>
+                <input  type="radio" id="widowed" name="marital_status" value="4" @if($patient->marital_status=='4') checked @endif>
                 <label for="widowed">Widowed</label>
             </div>
             <div class="form-group">
                 <strong>Next of Kin:</strong>
-                <input  type="text" name="next_of_kin" class="form-control" placeholder="NAME" value="{{ old('next_of_kin') }}">
+                <input  type="text" name="next_of_kin" class="form-control" placeholder="NAME" value="{{ $patient->next_of_kin }}">
             </div>
             <div class="form-group">
                 <strong>Phone Number:</strong>
-                <input  maxlength="10" type="text" name="nok_phone_number" class="form-control" placeholder="077777731" value="{{ old('nok_phone_number') }}">
+                <input  maxlength="10" type="text" name="nok_phone_number" class="form-control" placeholder="077777731" value="{{ $patient->nok_phone_number  }}">
             </div>
             <div class="form-group">
                 <strong>Relationship:</strong>
                 <select name="relationship" id="relationship" class="form-control" placeholder="" >
                      <option value="">Select Relationship</option>
-                     <option value="1"@selected(old('relationship')=='1')>Mother</option>  <!--Only for dropdown lists-->
-                     <option value="2" @if(old('relationship')=='2') selected @endif>Father</option>
-                     <option value="3" @if(old('relationship')=='3') selected @endif>Son</option>
-                     <option value="4" @if(old('relationship')=='4') selected @endif>Daughter</option>
-                     <option value="5" @if(old('relationship')=='5') selected @endif>Spouse</option>
+                     <option value="1"@selected($patient->relationship=='1')>Mother</option>  <!--Only for dropdown lists-->
+                     <option value="2" @if($patient->relationship=='2') selected @endif>Father</option>
+                     <option value="3" @if($patient->relationship=='3') selected @endif>Son</option>
+                     <option value="4" @if($patient->relationship=='4') selected @endif>Daughter</option>
+                     <option value="5" @if($patient->relationship=='5') selected @endif>Spouse</option>
                 </select>
             </div>
             <div class="form-group">

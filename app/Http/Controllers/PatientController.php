@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\StorePatientRuquest;
 use Illuminate\Http\Request; //import Ruquests #Keep names Aa
 use App\Models\Patient;
-use App\Http\Requests\StorePatientRequest;
+use Illuminate\Support\Facades\DB;
+// use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use Illuminate\Support\Str;
+use Faker\Provider\Image;
+
 
 class PatientController extends Controller
 {
@@ -32,9 +37,23 @@ class PatientController extends Controller
     public function store(StorePatientRuquest $request)
     {
         // $request->validate([
-        //     
+            
         // ]);
         // dd($request);
+
+        //storing the image
+
+        
+        // if ($request->hasfile('patient_image')) {
+        //     $image = $request->file('patient_image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $location = storage_path('public/images/') . $filename;
+    
+        //     // Image::make($image)->save($location);
+         // $path = $request->file('avatar')->store('avatars');
+        //     $patient->image = $filename;
+        //     $patient->save();
+        //   }
         Patient::create($request->all());
          
         return redirect()->route('patients.index') 
@@ -47,7 +66,11 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient=Patient::findOrFail($id);
-        return view('patients.show',compact('patient'));
+        // $patient=DB::select('SELECT* FROM patient WHERE id=?', ['id' => $id]);
+        // dd($patient);
+         return view('patients.show',compact('patient'));
+
+
     }
 
     /**

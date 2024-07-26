@@ -21,6 +21,8 @@ class Patient extends Model
         'nok_phone_number',
         'relationship',
         
+        
+        
     ];
 
     use HasFactory;

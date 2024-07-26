@@ -23,6 +23,7 @@
     <table class="table table-bordered">
         <!-- table to return the inserted patients' data -->
         <tr>
+            <th>Profile</th>
             <th>Name</th>
             <th>Phone number</th>
             <th>Gender</th>
@@ -32,6 +33,7 @@
         </tr>
         @foreach ($patients as $patient)
         <tr>
+            <td></td>
             <td>{{ $patient->first_name}} {{ $patient->last_name }}</td> <!--concacting name -->
             <td>{{ $patient->phone_number}}</td>
             <td>{{ ($patient->gender =='M')? 'Male':'Female'}}</td>

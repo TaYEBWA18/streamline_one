@@ -18,7 +18,10 @@ class PatientsObserver //Event listening class attached to the model Patients
 
     public function created(Patient $patient): void
     {
-        Log::info('Patients First name has been created with: ' . $patient->first_name);
+         Log::info('Patients First name has been created with: ' . $patient->first_name);
+        $patient_name = $patient->first_name.' '.$patient->last_name;
+        //$patient->slug=Str::slug($patient_name);
+       // $patient->slug=$slug
 
     }
 

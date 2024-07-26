@@ -60,6 +60,7 @@ Route::middleware(['radmin'])->prefix('admin')->group(function(){//applying the 
     })->name('admin_dashboard');
 });
 
+
 //un authorised route........
 Route::get('/unauthorized', function(){
     Return('Unauthorised access: ');
@@ -68,3 +69,13 @@ Route::get('/unauthorized', function(){
 // Here, we need to add resource route for product crud application.
 Route::resource('/patients',PatientController::class);
 
+//login route
+
+Route::get('/login', function(){
+   return view('login');
+})->name('login');
+
+Route::get('/sign_up', function(){
+    return view('sign_up');
+ })->name('sign_up');
+ 

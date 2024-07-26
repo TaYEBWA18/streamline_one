@@ -11,7 +11,9 @@
     <h1>{{__('messages.greeting')}}</h1><br>
     <h1>{{__('messages.goodbye')}}</h1><br>
     <button>{{__('messages.login')}}</button>
-
+    <picture>
+        {{}}
+    </picture>
 
 </body>
 </html>

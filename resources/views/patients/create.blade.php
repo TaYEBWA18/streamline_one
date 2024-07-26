@@ -94,7 +94,7 @@
             </div>
             <div class="form-group">
                 <strong>Profile Picture:</strong>
-                <input  type="file" name="picture" class="form-control">
+                <input  type="file" name="patient_image" class="form-control">
             </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
