@@ -14,7 +14,7 @@
     </div>            
 </div>
    <!-- catch input for errors -->
-@if ($errors->any())
+<!-- @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
@@ -23,7 +23,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif -->
    
 <form action="{{ route('patients.store') }}" method="POST" enctype='multipart/form-data'> 
 <!-- csrf prevents input injection from the browswe-->
@@ -48,7 +48,12 @@
             </div>
             <div class="form-group">
                 <strong>National ID:</strong>
-                <input maxlength="14" minlength="14"  type="text" name="nin" class="form-control" placeholder="NIN" value="{{ old('nin') }}">
+                <input maxlength="14" minlength="14"  type="text" name="nin" class="form-control @error('customerName') is-invalid @enderror" placeholder="NIN" value="{{ old('nin') }}">
+                @if ($errors->has('nin'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ $errors->first('nin') }}
+                    </div>
+                @endif
             </div>
             <div class="form-group">
                 <strong>DATE OF BIRTH:</strong>
@@ -56,7 +61,12 @@
             </div>
             <div class="form-group">
                 <strong>Phone Number:</strong>
-                <input  type="text" name="phone_number" class="form-control" placeholder="077777731" value="{{ old('phone_number') }}">
+                <input required type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror"
+                  placeholder="077777731" value="{{ old('phone_number') }}">
+                  @error('phone_number') <div class="alert alert-danger">
+                    {{ $message }}
+                  </div> 
+                  @enderror
             </div>
             <div class="form-group">
                 <strong>Email:</strong>
@@ -79,7 +89,9 @@
             </div>
             <div class="form-group">
                 <strong>Phone Number:</strong>
-                <input  maxlength="10" type="text" name="nok_phone_number" class="form-control" placeholder="077777731" value="{{ old('nok_phone_number') }}">
+                <input  maxlength="10" type="text" name="nok_phone_number" class="form-control" 
+                placeholder="077777731" value="{{ old('nok_phone_number') }}"> 
+                
             </div>
             <div class="form-group">
                 <strong>Relationship:</strong>

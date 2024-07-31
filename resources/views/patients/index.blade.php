@@ -39,7 +39,6 @@
             <td>{{ ($patient->gender =='M')? 'Male':'Female'}}</td>
             <td>{{ $patient->nin}}</td>
             <td>{{ $patient->email}}</td>
-
             <td>
                 <form action="{{ route('patients.destroy',$patient->id) }}" method="POST">
    

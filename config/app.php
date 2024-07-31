@@ -184,7 +184,23 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        
+        // 'Application' => App\Facades\Application::class
+        // 'Artisan' => Illuminate\Support\Facades\Artisan::class,
+        // 'Auth' => Illuminate\Support\Facades\Auth::class,
+        // 'Blade' => Illuminate\Support\Facades\Blade::class,
+        // 'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
+        // 'Cache' => Illuminate\Support\Facades\Cache::class,
+        // 'Config' => Illuminate\Support\Facades\Config::class,
+        // 'Cookie' => Illuminate\Support\Facades\Cookie::class,
+        // 'Crypt' => Illuminate\Support\Facades\Crypt::class,
+        // 'DB' => Illuminate\Support\Facades\DB::class,
+        // 'Eloquent' => Illuminate\Database\Eloquent\Model::class,
+        // 'Event' => Illuminate\Support\Facades\Event::class,
+        // 'File' => Illuminate\Support\Facades\File::class,
+        // 'Gate' => Illuminate
+        
+        'ninValidation' => app\Rules\NinValidation::class,
     ])->toArray(),
 
 ];

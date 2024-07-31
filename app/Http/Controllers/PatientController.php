@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UpdatePatientRequest;
 use Illuminate\Support\Str;
 use Faker\Provider\Image;
+use App\Rules\NinValidation;
 
 
 class PatientController extends Controller
@@ -19,7 +20,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::paginate(6); // paginate returns the top five records 
+        $patients = Patient::paginate(10); // paginate returns the top five records 
         return view('patients.index', compact('patients')); // 
     }
 
@@ -36,23 +37,16 @@ class PatientController extends Controller
      */
     public function store(StorePatientRuquest $request)
     {
+       
         // $request->validate([
             
         // ]);
         // dd($request);
 
-        //storing the image
 
         
         // if ($request->hasfile('patient_image')) {
-        //     $image = $request->file('patient_image');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = storage_path('public/images/') . $filename;
-    
-        //     // Image::make($image)->save($location);
-         // $path = $request->file('avatar')->store('avatars');
-        //     $patient->image = $filename;
-        //     $patient->save();
+        
         //   }
         Patient::create($request->all());
          
@@ -67,7 +61,7 @@ class PatientController extends Controller
     {
         $patient=Patient::findOrFail($id);
         // $patient=DB::select('SELECT* FROM patient WHERE id=?', ['id' => $id]);
-        // dd($patient);
+    
          return view('patients.show',compact('patient'));
 
 
@@ -87,9 +81,14 @@ class PatientController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
-    {
-        
+    {   
+        Patient::create($request->all());
+         
+        return redirect()->route('patients.index') 
+                        ->with('success','Patient details editted successfully.');
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
@@ -99,7 +98,7 @@ class PatientController extends Controller
         $patient->delete();
          
         return redirect()->route('patients.index')
-                        ->with('success','Patirnt deleted successfully');
+                        ->with('success','Patient deleted successfully');
     }
     
 }
