@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -226,20 +227,27 @@ select option {
     <title>sign_up</title>
 </head>
 <body>
+  
 <div class="container">
-  <form>
+  <form action="{{route('users.store')}}" method="POST">
+  @csrf
+  <h4>REGISTER HERE</h4>
     <div class="row">
       <h4>Account</h4>
       <div class="input-group input-group-icon">
-        <input type="text" placeholder="Full Name"/>
+        <input type="text" placeholder="Full Name" name="name" id="name" value="name" required/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
       <div class="input-group input-group-icon">
-        <input type="email" placeholder="Email Adress"/>
+        <input type="email" placeholder="Email Adress" name="email" id="email"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
       <div class="input-group input-group-icon">
-        <input type="password" placeholder="Password"/>
+        <input type="text" placeholder="Phone number" name="phone" id="phone"/>
+        <div class="input-icon"><i class="fa fa-key"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+        <input type="password" placeholder="Password" name="password" id="password"/>
         <div class="input-icon"><i class="fa fa-key"></i></div>
       </div>
     </div>
@@ -248,28 +256,28 @@ select option {
         <h4>Date of Birth</h4>
         <div class="input-group">
           <div class="col-third">
-            <input type="text" placeholder="DD"/>
+            <input type="text" placeholder="DD" name="day" id="day"/>
           </div>
           <div class="col-third">
-            <input type="text" placeholder="MM"/>
+            <input type="text" placeholder="MM" name="month" id="month"/>
           </div>
           <div class="col-third">
-            <input type="text" placeholder="YYYY"/>
+            <input type="text" placeholder="YYYY" name="year" id="year"/>
           </div>
         </div>
       </div>
       <div class="col-half">
         <h4>Gender</h4>
         <div class="input-group">
-          <input id="gender-male" type="radio" name="gender" value="male"/>
+          <input id="gender-male" type="radio" name="gender" value="M"/>
           <label for="gender-male">Male</label>
-          <input id="gender-female" type="radio" name="gender" value="female"/>
+          <input id="gender-female" type="radio" name="gender" value="F"/>
           <label for="gender-female">Female</label>
         </div>
       </div>
     </div>
     <div class="row">
-      <h4>Payment Details</h4>
+      <!-- <h4>Payment Details</h4>
       <div class="input-group">
         <input id="payment-method-card" type="radio" name="payment-method" value="card" checked="true"/>
         <label for="payment-method-card"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
@@ -296,8 +304,9 @@ select option {
             <option>2015</option>
             <option>2016</option>
           </select>
-        </div>
+        </div> -->
       </div>
+      <div><button type="submit"><b>Submit</b></button><br> Already have an account ? <br><a href=""><b>Log in</b></a></div>
     </div>
     <div class="row">
       <h4>Terms and Conditions</h4>
@@ -307,7 +316,7 @@ select option {
       </div>
     </div>
   </form>
-</div>ervice, and hereby confirm I have read the privacy policy.
+</div>Service, and hereby confirm I have read the privacy policy.
 
 </body>
 </html>

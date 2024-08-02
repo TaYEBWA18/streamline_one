@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckRole;
 /*
@@ -68,6 +69,8 @@ Route::get('/unauthorized', function(){
 
 // Here, we need to add resource route for product crud application.
 Route::resource('/patients',PatientController::class);
+//for the signup table and user management routes
+Route::resource('/users',userController::class);
 
 //login route
 

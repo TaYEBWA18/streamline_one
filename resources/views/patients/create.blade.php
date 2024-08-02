@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
                 <strong>Phone Number:</strong>
-                <input required type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror"
+                <input required type="text" name="phone_number" class="form-control @error('phone_number') invalid-feedback @enderror"
                   placeholder="077777731" value="{{ old('phone_number') }}">
                   @error('phone_number') <div class="alert alert-danger">
                     {{ $message }}

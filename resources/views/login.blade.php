@@ -287,23 +287,14 @@ input[type=text]:placeholder {
     <h2 href="{{route('sign_up')}}" class="inactive underlineHover">Sign Up </h2>
 
     <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="" id="icon" alt="User Icon" />
-    </div>
-
+    
     <!-- Login Form -->
     <form>
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
       <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"> <br>
-      <!-- <input href="{{route('patients.index')}}" type="submit" class="fadeIn fourth" value="Log In"> -->
+      <input href="{{route('patients.index')}}" type="submit" class="fadeIn fourth" value="Log In">
       <!-- <a class="fadeIn fourth" type="submit" href="{{route('patients.index')}}" style="color:#005580;">Login</a> -->
-      <button type="submit" class="button" href="{{route('patients.index')}}" style=" 
-      color: #47d147;
-      length: 100px;
-      border: 1px solid #;
-      border::radius 10px;
-      font-size:20px;
-      ">LOG IN</button> 
+     
     </form>
 
     <!-- Remind Passowrd -->
