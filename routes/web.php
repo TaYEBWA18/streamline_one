@@ -72,6 +72,8 @@ Route::resource('/patients',PatientController::class);
 //for the signup table and user management routes
 Route::resource('/users',userController::class);
 
+Route::post('/login', [userController::class, 'login'])->name('login');
+
 //login route
 
 Route::get('/login', function(){

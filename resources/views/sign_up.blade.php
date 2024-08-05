@@ -21,8 +21,23 @@ body {
   color: #b9b9b9;
   background-color: #e3e3e3;
 }
+button {
+  padding: 1em 2em;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+a{
+  color: green;
+  text-decoration: none;
+  text-decoration-line: underline;
+  font-weight: bold;
+  margin: 0 1em;
+}
 h4 {
-  color: #f0a500;
+  color: green;
 }
 input,
 input[type="radio"] + label,
@@ -216,6 +231,16 @@ select option {
 .col-third:last-of-type {
   padding-right: 0;
 }
+.alert-alert-danger{
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  max-width: 38em;
+  padding: 1em 3em 2em 3em;
+  margin: 0em auto;
+  border-radius: 2px;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
 @media only screen and (max-width: 540px) {
   .col-half {
     width: 100%;
@@ -234,20 +259,37 @@ select option {
   <h4>REGISTER HERE</h4>
     <div class="row">
       <h4>Account</h4>
-      <div class="input-group input-group-icon">
-        <input type="text" placeholder="Full Name" name="name" id="name" value="name" required/>
+      <div class="input-group input-group-icon ">
+        <input class="@error('name') invalid-feedback @enderror" type="text" placeholder="Full Name" name="name" id="name" value="{{ old('name') }}"/>
+        @error('name') <div class="alert-alert-danger">
+                    {{ $message }}
+                  </div> 
+                  @enderror
+        
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
-      <div class="input-group input-group-icon">
-        <input type="email" placeholder="Email Adress" name="email" id="email"/>
+      <div class="input-group input-group-icon ">
+        <input class="@error('email') invalid-feedback @enderror" type="email" placeholder="Email Adress" name="email" id="email" value="{{ old('email') }}"/>
+        @error('email') <div class="alert-alert-danger">
+                    {{ $message }}
+                  </div> 
+                  @enderror
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
       <div class="input-group input-group-icon">
-        <input type="text" placeholder="Phone number" name="phone" id="phone"/>
+        <input class="@error('phone') invalid-feedback @enderror" type="text" placeholder="Phone number" name="phone" id="phone" value="{{ old('phone') }}"/>
+        @error('phone') <div class="alert-alert-danger">
+                    {{ $message }}
+                  </div> 
+                  @enderror
         <div class="input-icon"><i class="fa fa-key"></i></div>
       </div>
       <div class="input-group input-group-icon">
-        <input type="password" placeholder="Password" name="password" id="password"/>
+        <input type="password" class="@error('password') invalid-feedback @enderror" placeholder="Password" name="password" id="password" value="{{ old('password') }}"/>
+        @error('name') <div class="alert-alert-danger">
+                    {{ $message }}
+                  </div> 
+                  @enderror
         <div class="input-icon"><i class="fa fa-key"></i></div>
       </div>
     </div>
@@ -256,67 +298,44 @@ select option {
         <h4>Date of Birth</h4>
         <div class="input-group">
           <div class="col-third">
-            <input type="text" placeholder="DD" name="day" id="day"/>
+            <input type="text" placeholder="DD" name="day" id="day" value="{{ old('day') }}"/>
           </div>
           <div class="col-third">
-            <input type="text" placeholder="MM" name="month" id="month"/>
+            <input type="text" placeholder="MM" name="month" id="month" value="{{ old('month') }}"/>
           </div>
           <div class="col-third">
-            <input type="text" placeholder="YYYY" name="year" id="year"/>
+            <input type="text" placeholder="YYYY" name="year" id="year" value="{{ old('year') }}"/>
           </div>
         </div>
+        @error('date_of_birth') <div class="alert-alert-danger">
+                    {{ $message }}
+                  </div> 
+                  @enderror
       </div>
       <div class="col-half">
         <h4>Gender</h4>
         <div class="input-group">
-          <input id="gender-male" type="radio" name="gender" value="M"/>
+          <input id="gender-male" type="radio" name="gender" value="M" @if(old('gender')=='M') checked @endif/>
           <label for="gender-male">Male</label>
-          <input id="gender-female" type="radio" name="gender" value="F"/>
+          <input id="gender-female" type="radio" name="gender" value="F" @if(old('gender')=='F') checked @endif/>
           <label for="gender-female">Female</label>
         </div>
+        @error('gender') <div class="alert-alert-danger">
+                    {{ $message }}
+                  </div> 
+                  @enderror
       </div>
     </div>
-    <div class="row">
-      <!-- <h4>Payment Details</h4>
-      <div class="input-group">
-        <input id="payment-method-card" type="radio" name="payment-method" value="card" checked="true"/>
-        <label for="payment-method-card"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
-        <input id="payment-method-paypal" type="radio" name="payment-method" value="paypal"/>
-        <label for="payment-method-paypal"> <span><i class="fa fa-cc-paypal"></i>Paypal</span></label>
-      </div>
-      <div class="input-group input-group-icon">
-        <input type="text" placeholder="Card Number"/>
-        <div class="input-icon"><i class="fa fa-credit-card"></i></div>
-      </div>
-      <div class="col-half">
-        <div class="input-group input-group-icon">
-          <input type="text" placeholder="Card CVC"/>
-          <div class="input-icon"><i class="fa fa-user"></i></div>
-        </div>
-      </div>
-      <div class="col-half">
-        <div class="input-group">
-          <select>
-            <option>01 Jan</option>
-            <option>02 Jan</option>
-          </select>
-          <select>
-            <option>2015</option>
-            <option>2016</option>
-          </select>
-        </div> -->
-      </div>
-      <div><button type="submit"><b>Submit</b></button><br> Already have an account ? <br><a href=""><b>Log in</b></a></div>
+      <div><button type="submit"><b>Submit</b></button><br><br> Already have an account ? <br><br><a href="{{route('login')}}"><b>Log in</b></a></div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <h4>Terms and Conditions</h4>
       <div class="input-group">
         <input id="terms" type="checkbox"/>
         <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
       </div>
-    </div>
+    </div> -->
   </form>
-</div>Service, and hereby confirm I have read the privacy policy.
-
+</div>
 </body>
 </html>
