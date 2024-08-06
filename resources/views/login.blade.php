@@ -11,19 +11,28 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #b9b9b9;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
 }
-
-a {
-  color: #92badd;
-  display:inline-block;
+a{
+  color: green;
   text-decoration: none;
+  margin: 0;
+  text-decoration: none;
+  font-size: 16px;
   font-weight: 400;
+  transition: color 0.3s;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #fff;
+
+
+
+
 }
 
 h2 {
@@ -35,7 +44,10 @@ h2 {
   margin: 40px 8px 10px 8px; 
   color: #cccccc;
 }
-
+h3{
+  margin: 10px 0;
+  color: green;
+}
 
 
 /* STRUCTURE */
@@ -233,6 +245,8 @@ input[type=text]:placeholder {
 }
 
 .fadeIn.fourth {
+  color: #fff;
+  background-color: green;
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   animation-delay: 1s;
@@ -284,14 +298,18 @@ input[type=text]:placeholder {
   <div id="formContent">
     <!-- Tabs Titles -->
     <!-- <h2 class="active"> Sign In </h2> -->
-    <h2 href="{{route('sign_up')}}" class="inactive underlineHover">Sign Up </h2>
+   
 
     <!-- Icon -->
     
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"> <br>
+    <form action="" method="POST">
+      @csrf
+      @method('POST')
+      <h3>Welcome !</h3>
+      <br>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="email"><br><br>
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"> <br><br>
       <input href="{{route('patients.index')}}" type="submit" class="fadeIn fourth" value="Log In">
       <!-- <a class="fadeIn fourth" type="submit" href="{{route('patients.index')}}" style="color:#005580;">Login</a> -->
      
@@ -299,6 +317,7 @@ input[type=text]:placeholder {
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
+    <a href="{{route('sign_up')}}" class="inactive underlineHover">Sign Up </a><br>
       <a class="underlineHover" href="">Forgot Password?</a>
     </div>
 

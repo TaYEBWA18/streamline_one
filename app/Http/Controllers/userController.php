@@ -16,9 +16,10 @@ class userController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(User $users)
     {
-        
+        $users = User::paginate(10);
+        return view('index', compact('users'));
     }
 
     /**
@@ -93,7 +94,7 @@ class userController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $id)
     {
         //
     }
